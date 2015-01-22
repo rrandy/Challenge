@@ -29,4 +29,6 @@
     <string name="title_activity_activity_answer">ActivityAnswer</string>
     <string name="title_activity_activity_accept_answer">ActivityAcceptAnswer</string>
 
+    <string name="bluetooth_UUID">c065af87-b800-4bb3-a932-c4c130f2a50ddd</string>
+
 </resources>
