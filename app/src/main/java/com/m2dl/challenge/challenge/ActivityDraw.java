@@ -22,6 +22,7 @@ package com.m2dl.challenge.challenge;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -186,6 +187,15 @@ public class ActivityDraw extends ActionBarActivity {
                 linesCoord += l.startX + COORD_SEP + l.startY + COORD_SEP + l.stopX + COORD_SEP + l.stopY + LINES_SEP ;
             }
 
+            if (lines.size() == 3){
+                Intent intent = new Intent(this.getContext(), ActivityGuess.class);
+                intent.putExtra("points", linesCoord);
+                intent.putExtra("dimX", this.getMeasuredHeight()+"");
+                intent.putExtra("dimY", this.getMeasuredWidth()+"");
+                startActivity(intent);
+            }
+
+
             Toast.makeText(context, linesCoord, Toast.LENGTH_LONG).show();
 
 
@@ -287,6 +297,7 @@ public class ActivityDraw extends ActionBarActivity {
             this(startX, startY, startX, startY);
         }
     }
+
 
 
 }

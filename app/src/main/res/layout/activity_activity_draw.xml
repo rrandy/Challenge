@@ -39,7 +39,7 @@
             android:text="Valider et envoyer"
             android:id="@+id/buttonValiderEtEnvoyer"
             android:layout_alignTop="@+id/textViewDessinezUneImage"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"/>
 
         <TextView android:text="Dessinez une image" android:layout_width="wrap_content"
             android:layout_height="wrap_content"
