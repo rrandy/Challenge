@@ -16,8 +16,7 @@
   ~
   ~ You should have received a copy of the GNU General Public License
   ~ along with Tracer c'est gagné.  If not, see <http://www.gnu.org/licenses/>.
-  -->
-
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.m2dl.challenge.challenge" >
 
@@ -29,11 +28,23 @@
         <activity
             android:name=".mainMenu"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ActivityPhoto"
+            android:label="@string/title_activity_activity_photo" >
+        </activity>
+        <activity
+            android:name=".ActivityMainMenu"
+            android:label="@string/title_activity_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityDraw"
+            android:label="@string/title_activity_activity_draw" >
         </activity>
     </application>
 
