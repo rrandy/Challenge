@@ -30,24 +30,10 @@ import android.widget.Button;
 
 public class ActivityMainMenu extends ActionBarActivity {
 
-    /**
-     * Listener d'envoi final de la photo et des métadonnées
-     */
-    private View.OnClickListener myListener = new View.OnClickListener() {
-        public void onClick(View arg0) {
-            Intent intent = new Intent(ActivityMainMenu.this, ActivityPhoto.class);
-            startActivity(intent);
-        }
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_main_menu);
-
-        // Bouton de validation
-        Button buttonComment = (Button) findViewById(R.id.buttonMenuTracer);
-        buttonComment.setOnClickListener(myListener);
     }
 
 
@@ -71,5 +57,15 @@ public class ActivityMainMenu extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void startDrawIntent(View v) {
+        Intent intent = new Intent(ActivityMainMenu.this, ActivityPhoto.class);
+        startActivity(intent);
+    }
+
+    public void startGuessIntent(View v) {
+        Intent intent = new Intent(ActivityMainMenu.this, ActivityGuess.class);
+        startActivity(intent);
     }
 }

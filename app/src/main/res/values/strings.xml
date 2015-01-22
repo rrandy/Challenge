@@ -25,5 +25,8 @@
     <string name="title_activity_activity_photo">ActivityPhoto</string>
     <string name="title_activity_activity_main_menu">ActivityMainMenu</string>
     <string name="title_activity_activity_draw">ActivityDraw</string>
+    <string name="title_activity_activity_guess">ActivityGuess</string>
+    <string name="title_activity_activity_answer">ActivityAnswer</string>
+    <string name="title_activity_activity_accept_answer">ActivityAcceptAnswer</string>
 
 </resources>

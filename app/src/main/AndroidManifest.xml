@@ -46,6 +46,18 @@
             android:name=".ActivityDraw"
             android:label="@string/title_activity_activity_draw" >
         </activity>
+        <activity
+            android:name=".ActivityGuess"
+            android:label="@string/title_activity_activity_guess" >
+        </activity>
+        <activity
+            android:name=".ActivityAnswer"
+            android:label="@string/title_activity_activity_answer" >
+        </activity>
+        <activity
+            android:name=".ActivityAcceptAnswer"
+            android:label="@string/title_activity_activity_accept_answer" >
+        </activity>
     </application>
 
 </manifest>
