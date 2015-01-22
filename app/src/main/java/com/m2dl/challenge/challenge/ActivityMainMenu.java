@@ -46,7 +46,7 @@ public class ActivityMainMenu extends ActionBarActivity {
         setContentView(R.layout.activity_activity_main_menu);
 
         // Bouton de validation
-        Button buttonComment = (Button) findViewById(R.id.buttonDevinerTracer);
+        Button buttonComment = (Button) findViewById(R.id.buttonMenuTracer);
         buttonComment.setOnClickListener(myListener);
     }
 
