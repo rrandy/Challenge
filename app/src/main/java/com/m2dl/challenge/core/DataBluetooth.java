@@ -35,9 +35,10 @@ public class DataBluetooth {
     private ServerBluetooth serverBluetooth;
     private ClientBluetooth clientBluetooth;
     private BluetoothAdapter bluetoothAdapter;
+    private BluetoothDevice bluetoothDevice;
 
     public DataBluetooth(){
-        BluetoothDevice bluetoothDevice = null;
+        bluetoothDevice = null;
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
         if (pairedDevices.size() > 0) {
@@ -54,13 +55,13 @@ public class DataBluetooth {
                 }
             }
         }
-        serverBluetooth = new ServerBluetooth(bluetoothAdapter,"challenge","c065af87-b800-4bb3-a932-c4c130f2a50ddd");
-        clientBluetooth = new ClientBluetooth(bluetoothDevice,bluetoothAdapter,"c065af87-b800-4bb3-a932-c4c130f2a50ddd");
+
     }
 
     public void sendDataByString(String key, String value){
         HashMap<String,String> data = new HashMap<String,String>();
         data.put(key, value);
+        clientBluetooth = new ClientBluetooth(bluetoothDevice,bluetoothAdapter,"c065af87-b800-4bb3-a932-c4c130f2a50ddd");
         clientBluetooth.setData(data);
         clientBluetooth.start();
         Log.d("client send data", "key= "+key+", value="+value);
@@ -69,6 +70,7 @@ public class DataBluetooth {
     public String getData(String key){
         HashMap<String,String> data = null;
         Log.d("server start", "start");
+        serverBluetooth = new ServerBluetooth(bluetoothAdapter,"challenge","c065af87-b800-4bb3-a932-c4c130f2a50ddd");
         serverBluetooth.start();
         while(data == null){
             data = serverBluetooth.getData();
