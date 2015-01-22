@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.m2dl.challenge.core.DataBluetooth;
 
 
 public class ActivityProposeAnswer extends ActionBarActivity {
@@ -32,8 +36,12 @@ public class ActivityProposeAnswer extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_exit) {
+            finish();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -41,12 +49,23 @@ public class ActivityProposeAnswer extends ActionBarActivity {
 
     public void sendAnswer (View v) {
 
-        // Send the answer
+        EditText answerEdit = (EditText) findViewById(R.id.editAnswer);
+        String answerToSend = answerEdit.getText().toString();
 
-        // Wait for the reply (correct/fail) and give a feedback to the player
 
-        // Go back to the first activity
-        Intent intent = new Intent(ActivityProposeAnswer.this, ActivityMainMenu.class);
-        startActivity(intent);
+        if (answerToSend != null && !answerToSend.equals("")) {
+            DataBluetooth bluetooth = new DataBluetooth();
+
+            // Send the answer
+            bluetooth.sendDataByString(getResources().getString(R.string.keyGuessAnswer), answerToSend);
+
+            // Wait for the reply (correct/fail) and give a feedback to the player
+            String reply = bluetooth.getData(getResources().getString(R.string.keyCorrectAnswer));
+            Toast.makeText(getApplicationContext(), reply, Toast.LENGTH_LONG).show();
+
+            // Go back to the first activity
+            Intent intent = new Intent(ActivityProposeAnswer.this, ActivityMainMenu.class);
+            startActivity(intent);
+        }
     }
 }
