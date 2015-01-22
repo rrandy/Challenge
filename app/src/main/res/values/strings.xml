@@ -28,6 +28,7 @@
     <string name="title_activity_activity_guess">ActivityGuess</string>
     <string name="title_activity_activity_propose_answer">ActivityAnswer</string>
     <string name="title_activity_activity_accept_answer">ActivityAcceptAnswer</string>
+    <string name="title_activity_activity_partner">ActivityPartner</string>
 
     <string name="keyGuessAnswer">guessAnswer</string>
     <string name="keyCorrectAnswer">correctAnswer</string>

@@ -25,6 +25,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.m2dl.challenge.core.bluetooth.ClientBluetooth;
+import com.m2dl.challenge.core.bluetooth.PartnerBluetooth;
 import com.m2dl.challenge.core.bluetooth.ServerBluetooth;
 
 import java.util.HashMap;
@@ -38,29 +39,14 @@ public class DataBluetooth {
     private BluetoothDevice bluetoothDevice;
 
     public DataBluetooth(){
-        bluetoothDevice = null;
-        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
-        if (pairedDevices.size() > 0) {
-            // Loop through paired devices
-            for (BluetoothDevice device : pairedDevices) {
-                //Je cherche celui dont j'ai besoin (en fait les 2 tel avec lesquels j'ai test�
-                if (device.getName().equals("HeroRAM1")) {
-                    System.out.println("HeroRAM1");
-                    bluetoothDevice=device;
-                }
-                if (device.getName().equals("HeroRAM3")) {
-                    System.out.println("HeroRAM3");
-                    bluetoothDevice=device;
-                }
-            }
-        }
 
+        bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
     public void sendDataByString(String key, String value){
         HashMap<String,String> data = new HashMap<String,String>();
         data.put(key, value);
+        bluetoothDevice = PartnerBluetooth.instance.getPartnerBluetooth();
         clientBluetooth = new ClientBluetooth(bluetoothDevice,bluetoothAdapter,"c065af87-b800-4bb3-a932-c4c130f2a50ddd");
         clientBluetooth.setData(data);
         clientBluetooth.start();
@@ -77,5 +63,9 @@ public class DataBluetooth {
         }
         Log.d("server receive data", "key= "+key+", value="+data.get(key));
         return data.get(key);
+    }
+
+    public static String getOwnBluetoothName(){
+        return BluetoothAdapter.getDefaultAdapter().getName();
     }
 }
