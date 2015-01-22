@@ -38,14 +38,16 @@
             android:layout_height="wrap_content"
             android:text="Tracer sur une image"
             android:id="@+id/buttonMenuTracer"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="startDrawIntent"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Deviner une image tracée"
             android:id="@+id/buttonMenuDeviner"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="startGuessIntent"/>
     </LinearLayout>
 
 </RelativeLayout>
