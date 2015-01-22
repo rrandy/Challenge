@@ -96,8 +96,7 @@ public class ActivityPhoto extends ActionBarActivity {
                     getContentResolver().notifyChange(imageUri, null);
                 }
         }
-       // finish();
-        Intent intent = new Intent(ActivityPhoto.this, ActivityAcceptAnswer.class);
+        Intent intent = new Intent(this, ActivityDraw.class);
         startActivity(intent);
     }
 

@@ -32,5 +32,6 @@
     <string name="keyGuessAnswer">guessAnswer</string>
     <string name="keyCorrectAnswer">correctAnswer</string>
     <string name="answerDialogTitle">La réponse était...</string>
+    <string name="bluetooth_UUID">c065af87-b800-4bb3-a932-c4c130f2a50ddd</string>
 
 </resources>
