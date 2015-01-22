@@ -35,4 +35,6 @@
     <string name="answerDialogTitle">La réponse était...</string>
     <string name="bluetooth_UUID">c065af87-b800-4bb3-a932-c4c130f2a50ddd</string>
 
+    <string name="preferencesFilename">com.m2dl.challenge</string>
+
 </resources>

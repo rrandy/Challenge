@@ -22,10 +22,12 @@ package com.m2dl.challenge.challenge;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class ActivityMainMenu extends ActionBarActivity {
@@ -64,7 +66,7 @@ public class ActivityMainMenu extends ActionBarActivity {
     }
 
     public void startDrawIntent(View v) {
-        Intent intent = new Intent(ActivityMainMenu.this, ActivityPhoto.class);
+        Intent intent = new Intent(ActivityMainMenu.this, ActivityAcceptAnswer.class);
         startActivity(intent);
     }
 

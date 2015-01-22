@@ -39,7 +39,6 @@ public class DataBluetooth {
     private BluetoothDevice bluetoothDevice;
 
     public DataBluetooth(){
-
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 

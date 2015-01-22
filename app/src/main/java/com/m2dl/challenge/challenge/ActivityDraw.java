@@ -22,6 +22,7 @@ package com.m2dl.challenge.challenge;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -91,8 +92,12 @@ public class ActivityDraw extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_exit) {
+            finish();
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -185,6 +190,15 @@ public class ActivityDraw extends ActionBarActivity {
                 canvas.drawLine(l.startX, l.startY, l.stopX, l.stopY, paint);
                 linesCoord += l.startX + COORD_SEP + l.startY + COORD_SEP + l.stopX + COORD_SEP + l.stopY + LINES_SEP ;
             }
+
+            if (lines.size() == 3){
+                Intent intent = new Intent(this.getContext(), ActivityGuess.class);
+                intent.putExtra("points", linesCoord);
+                intent.putExtra("dimX", this.getMeasuredHeight()+"");
+                intent.putExtra("dimY", this.getMeasuredWidth()+"");
+                startActivity(intent);
+            }
+
 
             Toast.makeText(context, linesCoord, Toast.LENGTH_LONG).show();
 
@@ -287,6 +301,7 @@ public class ActivityDraw extends ActionBarActivity {
             this(startX, startY, startX, startY);
         }
     }
+
 
 
 }

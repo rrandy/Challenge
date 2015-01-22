@@ -1,6 +1,24 @@
+/*
+ * Copyright (c) 2015 Marine Carrara, Akana Mao, Randy Ratsimbazafy
+ *
+ * This file is part of Tracer c'est gagné.
+ *
+ * Tracer c'est gagné is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Tracer c'est gagné is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Tracer c'est gagné.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.m2dl.challenge.com.m2dl.views;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +27,7 @@ import android.widget.EditText;
 import com.m2dl.challenge.challenge.ActivityAcceptAnswer;
 
 import com.m2dl.challenge.challenge.R;
+import com.m2dl.challenge.core.Scoring;
 
 /**
  * Created by marine on 22/01/15.
@@ -44,7 +63,7 @@ public class AnswerDialog extends Dialog implements android.view.View.OnClickLis
                 EditText answerEditText = (EditText) findViewById(R.id.editCorrectAnswer);
                 answer = answerEditText.getText().toString();
                 dismiss();
-                activity.restartGame("Faux ! La réponse était : " + answer, 0);
+                activity.restartGame("Faux ! La réponse était : " + answer, Scoring.SCORE_LOOSE);
                 break;
             case R.id.btn_answer_cancel:
                 dismiss();
