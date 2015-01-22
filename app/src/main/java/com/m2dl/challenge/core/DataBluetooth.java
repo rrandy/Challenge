@@ -49,7 +49,7 @@ public class DataBluetooth {
                     System.out.println("HeroRAM1");
                     bluetoothDevice=device;
                 }
-                if (device.getName().equals("HeroRAM2")) {
+                if (device.getName().equals("GalaxyS")) {
                     System.out.println("HeroRAM3");
                     bluetoothDevice=device;
                 }
