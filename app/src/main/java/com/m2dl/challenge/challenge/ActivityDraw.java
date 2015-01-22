@@ -191,6 +191,15 @@ public class ActivityDraw extends ActionBarActivity {
                 linesCoord += l.startX + COORD_SEP + l.startY + COORD_SEP + l.stopX + COORD_SEP + l.stopY + LINES_SEP ;
             }
 
+            if (lines.size() == 3){
+                Intent intent = new Intent(this.getContext(), ActivityGuess.class);
+                intent.putExtra("points", linesCoord);
+                intent.putExtra("dimX", this.getMeasuredHeight()+"");
+                intent.putExtra("dimY", this.getMeasuredWidth()+"");
+                startActivity(intent);
+            }
+
+
             Toast.makeText(context, linesCoord, Toast.LENGTH_LONG).show();
 
 
@@ -292,6 +301,7 @@ public class ActivityDraw extends ActionBarActivity {
             this(startX, startY, startX, startY);
         }
     }
+
 
 
 }
