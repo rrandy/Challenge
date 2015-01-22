@@ -64,7 +64,7 @@ public class ActivityMainMenu extends ActionBarActivity {
     }
 
     public void startDrawIntent(View v) {
-        Intent intent = new Intent(ActivityMainMenu.this, ActivityPhoto.class);
+        Intent intent = new Intent(ActivityMainMenu.this, ActivityAcceptAnswer.class);
         startActivity(intent);
     }
 
