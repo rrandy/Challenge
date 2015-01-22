@@ -54,8 +54,8 @@
             android:label="@string/title_activity_activity_guess" >
         </activity>
         <activity
-            android:name=".ActivityAnswer"
-            android:label="@string/title_activity_activity_answer" >
+            android:name=".ActivityProposeAnswer"
+            android:label="@string/title_activity_activity_propose_answer" >
         </activity>
         <activity
             android:name=".ActivityAcceptAnswer"

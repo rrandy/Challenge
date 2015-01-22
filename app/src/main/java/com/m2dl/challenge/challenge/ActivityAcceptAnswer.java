@@ -1,19 +1,39 @@
 package com.m2dl.challenge.challenge;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.m2dl.challenge.com.m2dl.views.AnswerDialog;
+import com.m2dl.challenge.core.DataBluetooth;
 
 
 public class ActivityAcceptAnswer extends ActionBarActivity {
+
+    private DataBluetooth bluetooth;
+    private AnswerDialog dialog;
+    private String messageToReply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_accept_answer);
+
+        bluetooth = new DataBluetooth();
+
+        // Get the submitted anwser
+        String answerReceived = bluetooth.getData(getResources().getString(R.string.keyGuessAnswer));
+
+        TextView answerToShow = (TextView) findViewById(R.id.tvAnswerReceived);
+        answerToShow.setText(answerReceived);
     }
 
 
@@ -39,8 +59,25 @@ public class ActivityAcceptAnswer extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void restartGame (View v) {
+    public void acceptAnswer(View v) {
+        messageToReply = "Correct !";
+        int scoreJ2 = 1;
+        restartGame(messageToReply, scoreJ2);
+    }
+
+    public void refuseAnswer(View v) {
+        dialog = new AnswerDialog(this);
+        dialog.setContentView(R.layout.correct_answer_dialog);
+        dialog.show();
+    }
+
+    public void restartGame (String messageToReply, int newScoreForJ2) {
         // Update scores
+
+        Toast.makeText(getApplicationContext(),messageToReply,Toast.LENGTH_LONG).show();
+
+        // Send feedback to the other player
+        bluetooth.sendDataByString(getResources().getString(R.string.keyCorrectAnswer), messageToReply);
 
         // Go back to the first activity
         Intent intent = new Intent(ActivityAcceptAnswer.this, ActivityMainMenu.class);

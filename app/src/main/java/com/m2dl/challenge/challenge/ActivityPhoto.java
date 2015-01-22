@@ -61,6 +61,7 @@ public class ActivityPhoto extends ActionBarActivity {
 
         // Prise de photo
         takePhoto(null);
+
     }
 
     /**
