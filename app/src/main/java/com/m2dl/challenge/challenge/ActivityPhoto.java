@@ -61,6 +61,7 @@ public class ActivityPhoto extends ActionBarActivity {
 
         // Prise de photo
         takePhoto(null);
+
     }
 
     /**
@@ -95,7 +96,9 @@ public class ActivityPhoto extends ActionBarActivity {
                     getContentResolver().notifyChange(imageUri, null);
                 }
         }
-        finish();
+       // finish();
+        Intent intent = new Intent(ActivityPhoto.this, ActivityAcceptAnswer.class);
+        startActivity(intent);
     }
 
     @Override
